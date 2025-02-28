@@ -1,0 +1,12 @@
+name: First action
+
+on:
+  push:
+    tags:
+      - 'version*'
+
+jobs:
+  first:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "First action successfully finished!"
