@@ -7,6 +7,19 @@ on:
 
 jobs:
   first:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:
       - run: echo "First action successfully finished!"
+
+      - name: Create artifacts
+        run: |
+          "web-functionAppLinux.bicep" | Out-File -FilePath "bicepFileName.txt" -Encoding utf8
+          "src/main/bicep/atomic" | Out-File -FilePath "bicepDirectory.txt" -Encoding utf8
+        
+      - name: Upload bicep file name and directory artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: bicep-artifacts
+          path: |
+            bicepFileName.txt
+            bicepDirectory.txt

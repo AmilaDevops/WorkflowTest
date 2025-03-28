@@ -1,0 +1,24 @@
+name: Second action
+
+on:
+  workflow_dispatch:
+  workflow_run:
+    workflows: ['First action']
+    types: [completed]
+
+jobs:
+  second:
+    runs-on: windows-latest
+    steps:
+      - run: echo "Second action successfully finished!"
+
+      - name: Download Bicep Artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: bicep-artifacts
+          run-id: ${{ github.event.workflow_run.id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Show downloaded artifacts
+        run: |
+          dir
