@@ -25,8 +25,8 @@ jobs:
 
       - name: Read Bicep File Name and Directory
         run: |
-            echo "BICEP_FILE_NAME=$(cat bicepFileName.txt)" >> $GITHUB_ENV
-            echo "BICEP_DIRECTORY=$(cat bicepDirectory.txt)" >> $GITHUB_ENV
+            echo "BICEP_FILE_NAME=$(cat bicepFileName.txt)" >> $env:GITHUB_ENV
+            echo "BICEP_DIRECTORY=$(cat bicepDirectory.txt)" >> $env:GITHUB_ENV
 
       - name: Determine specific Documentation Directory location
         run: |
