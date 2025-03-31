@@ -37,6 +37,15 @@ jobs:
               $DOC_FOLDER = $matches[1]
               echo "DOC_FOLDER valus is..$DOC_FOLDER " 
 
+              if ( ${{ env.BICEP_DIRECTORY }} -match "src/main/bicep/(.*)") {
+                $DOC_FOLDER = $matches[1]
+                echo "DOC_FOLDER=$DOC_FOLDER"  >> $env:GITHUB_ENV
+                echo "DOC_FOLDER is ${{ env.DOC_FOLDER }}"
+              } else {
+                Write-Error "Failed to determine doc output folder"
+                exit 1
+              }
+               echo "DOC_FOLDER iss ${{ env.DOC_FOLDER }}"
               
 
       
