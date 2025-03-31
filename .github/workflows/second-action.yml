@@ -45,4 +45,3 @@ jobs:
                 Write-Error "Failed to determine doc output folder"
                 exit 1
               }
-               echo "DOC_FOLDER is ${{ env.DOC_FOLDER }}"
