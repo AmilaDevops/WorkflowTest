@@ -35,7 +35,7 @@ jobs:
               # Extract the ./doc/Bicep/ directory name (eg: atomic, composite, service, type) from the $BICEP_DIRECTORY variable
               ${{ env.BICEP_DIRECTORY }} -match "src/main/bicep/(.*)" 
               $DOC_FOLDER = $matches[1]
-              echo "DOC_FOLDER valus is.." $DOC_FOLDER 
+              echo "DOC_FOLDER valus is..$DOC_FOLDER " 
 
               
 
