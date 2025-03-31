@@ -30,6 +30,8 @@ jobs:
 
       - name: Determine specific Documentation Directory location
         run: |
+              echo "bicep directory is.. $env:BICEP_DIRECTORY"
+              echo "bicep file name is.. $env:BICEP_FILE_NAME"
               # Extract the ./doc/Bicep/ directory name (eg: atomic, composite, service, type) from the $BICEP_DIRECTORY variable
               if ($env:BICEP_DIRECTORY -match "src/main/bicep/(.*)") {
                 $DOC_FOLDER = $matches[1]
