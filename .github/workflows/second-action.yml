@@ -34,7 +34,7 @@ jobs:
               echo "bicep file name is.. ${{ env.BICEP_FILE_NAME }}"
               # Extract the ./doc/Bicep/ directory name (eg: atomic, composite, service, type) from the $BICEP_DIRECTORY variable
 
-              if ( ${{ env.BICEP_DIRECTORY }} -match "src/main/bicep/(.*)") {
+              if ( "${{ env.BICEP_DIRECTORY }}" -match "src/main/bicep/(.*)") {
                 $DOC_FOLDER = $matches[1]
                 echo "DOC_FOLDER=$DOC_FOLDER"  >> $env:GITHUB_ENV
                 echo "DOC_FOLDER is ${{ env.DOC_FOLDER }}"
