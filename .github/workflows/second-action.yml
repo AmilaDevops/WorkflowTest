@@ -42,3 +42,9 @@ jobs:
                 Write-Error "Failed to determine doc output folder"
                 exit 1
               }
+
+      - name: Output of published Bicep File name and File path
+        run: |
+            echo "BICEP_FILE_NAME is : ${{ env.BICEP_FILE_NAME }}"
+            echo "BICEP_DIRECTORY is : ${{ env.BICEP_DIRECTORY }}"
+            echo "DOC_FOLDER is : $DOC_FOLDER haha and ${{ env.DOC_FOLDER }}"
